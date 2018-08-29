@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="view_alpha_background">#4Db4b4b4</color>
+    <color name="divider_color">#cfcfcf</color>
+    <color name="purple">#8542E0</color>
+    <color name="purpleDark">#6a35b3</color>
+
+    <color name="white">#fff</color>
+    <color name="black">#000000</color>
+
+    <color name="transparent_black">#B3000000</color>
+    <color name="transparent_grey">#aaBFBFBF</color>
+    <color name="translucent_grey">#aaD5D5D7</color>
+    <color name="transparent">#00000000</color>
+    <color name="mobilenumber_color">#1fc056</color>
+    <color name="password_color">#047dc2</color>
+    <color name="login_btn">#ff4081</color>
+    <color name="holo_red_dark">#ffcc0000</color>
+    <color name="color_list_header_bg">#f3f3f3</color>
+    <color name="my_categories_bg">#F1F1F1</color>
+    <color name="light_transparent">#40FFFFFF</color>
+
+    <color name="tab_text_lightwhite">#C8b1F0</color>
+
+    <color name="color_sales_contract_confirmation">#8542E0</color>
+    <color name="color_buyers">#333333</color>
+
+
+    <color name="divider_blue">#A18BBD</color>
+    <color name="light_grey">#E7E0F0</color>
+    <color name="light_grey_passcode">#D5D5D7</color>
+    <color name="grey_edittext_passcode">#7F8B8F</color>
+    <color name="dark_black">#333333</color>
+    <color name="grey_popup">#707070</color>
+    <color name="disabled_grey_popup">#54707070</color>
+    <color name="nature_of_business">#303030</color>
+    <color name="dark_green">#1FC056</color>
+    <color name="grey_menu">#EbE2F7</color>
+    <color name="grey_divider_menu">#BFBFBF</color>
+    <color name="blue_text_menu">#8542e0</color>
+    <color name="transparent_twt">#50000000</color>
+    <color name="black_transparent">#33000000</color>
+    <color name="grey">#C0C0C0</color>
+    <!--<color name="light_grey3">#898989</color>-->
+
+    <color name="yellow">#F7EBA1</color>
+    <color name="md_material_blue_600">#1E88E5</color>
+    <color name="md_material_blue_800">#1565C0</color>
+
+    <color name="blue_light_background">#EFEFF4</color>
+
+    <color name="color_margin">#d1d1d1</color>
+    <color name="white_smoke">#F0F0F0</color>
+    <color name="white_smoke_transparent">#00F0F0F0</color>
+    <color name="list_divider">#C6C6C6</color>
+    <color name="dark_grey">#ADADAD</color>
+    <color name="home_separator">#EEEEEE</color>
+    <color name="green_bilbao">#357424</color>
+    <color name="grey_montana">#333333</color>
+    <color name="firebrick">#BA2123</color>
+    <color name="bay_leaf">#83C198</color>
+    <color name="dark_purple">#8542E0</color>
+    <color name="bg_highlight_dark">#FE3265</color>
+    <color name="bg_highlight_light">#aaF3DEE3</color>
+    <color name="light_purple">#E8E3F0</color>
+    <color name="sea_pink">#CB7B7C</color>
+    <color name="dim_gray">#777777</color>
+    <color name="gray55">#555555</color>
+    <color name="iron">#C9C9C9</color>
+    <color name="limeade">#8AC149</color>
+
+    <color name="black_label">#282828</color>
+    <color name="grey_label">#757575</color>
+    <color name="item_label">#141414</color>
+    <color name="color_main_text_black">#333333</color>
+    <color name="color_subtext_grey">#707070</color>
+    <color name="color_green">#1D8D44</color>
+    <color name="color_orange">#FF7F00</color>
+    <color name="color_dark_orange">#CFA044</color>
+    <color name="color_red">#FF0000</color>
+    <color name="color_app_green">#1fc056</color>
+    <color name="selected_green">#9EE387</color>
+    <color name="selected_green_translucent">#aa9EE387</color>
+
+
+    <color name="metalmann_purple">#8542e0</color>
+    <color name="metalmann_pink">#ff4081</color>
+    <color name="metalmann_green">#1fc056</color>
+    <color name="metalmann_blue">#047dc2</color>
+
+    <color name="grey_hint_color">#A7A7A7</color>
+    <color name="black_text_color">#515151</color>
+    <color name="dark_pink">#EC008C</color>
+    <color name="grey1">#eaeaea</color>
+    <color name="grey2">#b7b7b7</color>
+    <color name="grey3">#707070</color>
+    <color name="grey4">#2C2C2C</color>
+    <color name="grey5">#8F8F8F</color>
+    <color name="grey6">#E4E2E2</color>
+    <color name="grey7">#6c6c6c</color>
+    <color name="grey8">#EBEBEB</color>
+    <color name="light_grey1">#F0F0F0</color>
+    <color name="switch_blue">#009587</color>
+    <color name="switch_bg">#8BC0BB</color>
+    <color name="options">#8542E0</color>
+    <color name="gray44">#707070</color>
+    <color name="black_20_opacity">#33000000</color>
+    <color name="light_gray2">#b4b4b4</color>
+    <color name="gray18">#2E2E2E</color>
+    <color name="gray_dark">#424242</color>
+    <color name="pink_light">#FF4081</color>
+    <color name="light_gray">#F1F1F1</color>
+    <color name="light_navy_blue">#6574AB</color>
+
+    <color name="calculator_accent_color">#8542E0</color>
+
+    <!-- Color to indicate an error has occured. -->
+    <color name="calculator_error_color">#F40056</color>
+
+    <!-- Background color of the calculator display. -->
+    <color name="display_background_color">#FFF</color>
+
+    <!-- Text color for the formula in the calculator display. -->
+    <color name="display_formula_text_color">#8A000000</color>
+
+    <!-- Text color for the result in the calculator display. -->
+    <color name="display_result_text_color">#6C000000</color>
+
+    <!-- Background color for the numeric pad. -->
+    <color name="pad_numeric_background_color">#434343</color>
+
+    <!-- Background color for the operator pad. -->
+    <color name="pad_operator_background_color">#636363</color>
+
+    <!-- Background color for the advanced pad. -->
+    <color name="pad_advanced_background_color">#1DE9B6</color>
+
+    <!-- Text color for a button in a pad. -->
+    <color name="pad_button_text_color">#FFF</color>
+
+    <!-- Text color for a button in the advanced pad. -->
+    <color name="pad_button_advanced_text_color">#91000000</color>
+
+    <!-- Ripple color when a button is pressed in a pad. -->
+    <color name="pad_button_ripple_color">#33FFFFFF</color>
+
+    <!-- Ripple color when a button is pressed in a pad. -->
+    <color name="pad_button_advanced_ripple_color">#1A000000</color>
+
+    <color name="bg_green">#00AE9F</color>
+    <color name="icon_orange_color">#f26c29</color>
+    <color name="main_bg_color">#FF2a91be</color>
+    <color name="mic_button_halo">#20000000</color>
+    <color name="aidialog_background">#e0e0e0</color>
+</resources>
