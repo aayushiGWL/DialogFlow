@@ -6,6 +6,7 @@
     android:paddingBottom="@dimen/margin_8"
     android:paddingLeft="@dimen/margin_8"
     android:paddingRight="@dimen/margin_8"
+    android:background="#FFF"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activity.MainActivity">
 

@@ -247,31 +247,36 @@ public class ChatActivity extends AppCompatActivity implements
 
 //                resultTextView.setText(gson.toJson(response));
 
-                Log.i(TAG, "Received success response");
+                Log.i(TAG, getString(R.string.success_response));
 
                 // this is example how to get different parts of result object
                 final Status status = response.getStatus();
-                Log.i(TAG, "Status code: " + status.getCode());
-                Log.i(TAG, "Status type: " + status.getErrorType());
+                Log.i(TAG, getString(R.string.status_code) + status.getCode());
+                Log.i(TAG, getString(R.string.status_type) + status.getErrorType());
 
                 final Result result = response.getResult();
-                Log.i(TAG, "Resolved query: " + result.getResolvedQuery());
+                Log.i(TAG, getString(R.string.resolved_query) + result.getResolvedQuery());
 
-                Log.i(TAG, "Action: " + result.getAction());
+                Log.i(TAG, getString(R.string.action) + result.getAction());
                 final String speech = result.getFulfillment().getSpeech();
-                Log.i(TAG, "Speech: " + speech);
+                Log.i(TAG, getString(R.string.speech) + speech);
                 TTS.speak(speech, mActivity, iUtterenceCompleted);
 //                resultTextView.setText(speech);//shows only speech
-                addNewAppChat(speech);
-                final Metadata metadata = result.getMetadata();
+
+                if (speech != null && !speech.isEmpty())
+                    addNewAppChat(speech);
+                else
+                    addNewAppChat(getString(R.string.error_message));
+
+                    final Metadata metadata = result.getMetadata();
                 if (metadata != null) {
-                    Log.i(TAG, "Intent id: " + metadata.getIntentId());
-                    Log.i(TAG, "Intent name: " + metadata.getIntentName());
+                    Log.i(TAG, getString(R.string.intent_id) + metadata.getIntentId());
+                    Log.i(TAG, getString(R.string.intent_name) + metadata.getIntentName());
                 }
 
                 final HashMap<String, JsonElement> params = result.getParameters();
                 if (params != null && !params.isEmpty()) {
-                    Log.i(TAG, "Parameters: ");
+                    Log.i(TAG, getString(R.string.parameters));
                     for (final Map.Entry<String, JsonElement> entry : params.entrySet()) {
                         Log.i(TAG, String.format("%s: %s", entry.getKey(), entry.getValue().toString()));
                     }

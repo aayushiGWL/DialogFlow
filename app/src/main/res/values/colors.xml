@@ -9,7 +9,7 @@
     <color name="purple">#8542E0</color>
     <color name="purpleDark">#6a35b3</color>
 
-    <color name="white">#fff</color>
+    <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
     <color name="transparent_black">#B3000000</color>
@@ -156,4 +156,5 @@
     <color name="main_bg_color">#FF2a91be</color>
     <color name="mic_button_halo">#20000000</color>
     <color name="aidialog_background">#e0e0e0</color>
+    <color name="chat_user_bg">#E8EAED</color>
 </resources>

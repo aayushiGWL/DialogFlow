@@ -14,6 +14,8 @@
     <string name="title_app_widget">Voice command</string>
     <string name="non_empty_query">Query should not be empty</string>
 
+    <string name="hi">Hi</string>
+
     <string name="use_bluetooth_headset">Use Bluetooth headset</string>
     <string name="chat">Chat</string>
     <string name="title_activity_chat">ChatActivity</string>
@@ -31,4 +33,14 @@
     <string name="value_age">24</string>
     <string name="content_description">content description</string>
     <string name="enter_here">Enter here</string>
+    <string name="error_message">Sorry, I didn\'t get that. Can you rephrase?</string>
+    <string name="intent_id">Intent id:&#160;</string>
+    <string name="intent_name">Intent name:&#160;</string>
+    <string name="parameters">Parameters:&#160;</string>
+    <string name="status_code"><![CDATA[Status code: &#160;]]></string>
+    <string name="status_type"><![CDATA[Status type: &#160;]]></string>
+    <string name="resolved_query"><![CDATA[Resolved query: &#160;]]></string>
+    <string name="action"><![CDATA[Action: &#160;]]></string>
+    <string name="speech"><![CDATA[Speech: &#160;]]></string>
+    <string name="success_response">Received success response</string>
 </resources>
