@@ -157,4 +157,6 @@
     <color name="mic_button_halo">#20000000</color>
     <color name="aidialog_background">#e0e0e0</color>
     <color name="chat_user_bg">#E8EAED</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

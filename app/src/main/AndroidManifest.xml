@@ -14,17 +14,17 @@
         android:allowBackup="true"
         android:icon="@drawable/sun_icon"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:largeHeap="true"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".activity.AIButtonSampleActivity"
@@ -61,7 +61,7 @@
         <activity
             android:name=".activity.AIWidgetActivity"
             android:label="@string/app_name"
-            android:theme="@style/Base.Theme.AppCompat.Dialog"></activity>
+            android:theme="@style/Base.Theme.AppCompat.Dialog" />
         <activity
             android:name=".activity.AITextSampleActivity"
             android:label="@string/title_activity_aitext_sample"
@@ -90,6 +90,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gwl.dialogflow.activity.MainActivity" />
         </activity>
+        <!--<activity-->
+            <!--android:name=".activity.SplashActivity"-->
+            <!--android:configChanges="orientation|keyboardHidden|screenSize"-->
+            <!--android:label="@string/title_activity_splash"-->
+            <!--android:theme="@style/FullscreenTheme"-->
+            <!--android:noHistory="true">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
     </application>
 
 </manifest>

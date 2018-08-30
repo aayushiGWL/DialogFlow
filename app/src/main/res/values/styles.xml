@@ -28,20 +28,20 @@
 
     <!--Style for ai.api.ui.AIButton. Override it for mic customization-->
     <!--<style name="ApiAi.Microphone">-->
-        <!--<item name="mainColor">@color/mic_colors</item>-->
-        <!--<item name="maxRadius">@dimen/mic_button_halo_radius_max</item>-->
-        <!--<item name="minRadius">@dimen/mic_button_halo_radius_min</item>-->
-        <!--<item name="centerColor">@color/icon_orange_color</item>-->
-        <!--<item name="haloColor">@color/mic_button_halo</item>-->
-        <!--<item name="android:src">@drawable/mic_control</item>-->
-        <!--<item name="android:paddingTop">0dp</item>-->
-        <!--<item name="android:paddingBottom">0dp</item>-->
-        <!--<item name="android:paddingLeft">0dp</item>-->
-        <!--<item name="android:paddingRight">0dp</item>-->
-        <!--<item name="android:layout_margin">0dp</item>-->
-        <!--<item name="android:layout_width">@dimen/mic_button_size</item>-->
-        <!--<item name="android:layout_height">@dimen/mic_button_size</item>-->
-        <!--<item name="android:scaleType">centerInside</item>-->
+    <!--<item name="mainColor">@color/mic_colors</item>-->
+    <!--<item name="maxRadius">@dimen/mic_button_halo_radius_max</item>-->
+    <!--<item name="minRadius">@dimen/mic_button_halo_radius_min</item>-->
+    <!--<item name="centerColor">@color/icon_orange_color</item>-->
+    <!--<item name="haloColor">@color/mic_button_halo</item>-->
+    <!--<item name="android:src">@drawable/mic_control</item>-->
+    <!--<item name="android:paddingTop">0dp</item>-->
+    <!--<item name="android:paddingBottom">0dp</item>-->
+    <!--<item name="android:paddingLeft">0dp</item>-->
+    <!--<item name="android:paddingRight">0dp</item>-->
+    <!--<item name="android:layout_margin">0dp</item>-->
+    <!--<item name="android:layout_width">@dimen/mic_button_size</item>-->
+    <!--<item name="android:layout_height">@dimen/mic_button_size</item>-->
+    <!--<item name="android:scaleType">centerInside</item>-->
     <!--</style>-->
 
     <style name="AppTheme.NoActionBar">
@@ -54,20 +54,20 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!--<style name="ApiAi.Microphone">-->
-        <!--<item name="mainColor">@drawable/mic_colors</item>-->
-        <!--<item name="maxRadius">@dimen/mic_button_halo_radius_max</item>-->
-        <!--<item name="minRadius">@dimen/mic_button_halo_radius_min</item>-->
-        <!--<item name="centerColor">@color/icon_orange_color</item>-->
-        <!--<item name="haloColor">@color/mic_button_halo</item>-->
-        <!--<item name="android:src">@drawable/mic_control</item>-->
-        <!--<item name="android:paddingTop">0dp</item>-->
-        <!--<item name="android:paddingBottom">0dp</item>-->
-        <!--<item name="android:paddingLeft">0dp</item>-->
-        <!--<item name="android:paddingRight">0dp</item>-->
-        <!--<item name="android:layout_margin">0dp</item>-->
-        <!--<item name="android:layout_width">@dimen/mic_button_size</item>-->
-        <!--<item name="android:layout_height">@dimen/mic_button_size</item>-->
-        <!--<item name="android:scaleType">centerInside</item>-->
+    <!--<item name="mainColor">@drawable/mic_colors</item>-->
+    <!--<item name="maxRadius">@dimen/mic_button_halo_radius_max</item>-->
+    <!--<item name="minRadius">@dimen/mic_button_halo_radius_min</item>-->
+    <!--<item name="centerColor">@color/icon_orange_color</item>-->
+    <!--<item name="haloColor">@color/mic_button_halo</item>-->
+    <!--<item name="android:src">@drawable/mic_control</item>-->
+    <!--<item name="android:paddingTop">0dp</item>-->
+    <!--<item name="android:paddingBottom">0dp</item>-->
+    <!--<item name="android:paddingLeft">0dp</item>-->
+    <!--<item name="android:paddingRight">0dp</item>-->
+    <!--<item name="android:layout_margin">0dp</item>-->
+    <!--<item name="android:layout_width">@dimen/mic_button_size</item>-->
+    <!--<item name="android:layout_height">@dimen/mic_button_size</item>-->
+    <!--<item name="android:scaleType">centerInside</item>-->
     <!--</style>-->
 
     <!--Style for ai.api.ui.AIButton. Override it for mic customization-->
@@ -87,6 +87,18 @@
         <item name="android:layout_width">@dimen/mic_button_size</item>
         <item name="android:layout_height">@dimen/mic_button_size</item>
         <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
     </style>
 
 </resources>
