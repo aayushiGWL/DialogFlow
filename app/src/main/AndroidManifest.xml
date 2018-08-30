@@ -90,18 +90,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gwl.dialogflow.activity.MainActivity" />
         </activity>
-        <!--<activity-->
-            <!--android:name=".activity.SplashActivity"-->
-            <!--android:configChanges="orientation|keyboardHidden|screenSize"-->
-            <!--android:label="@string/title_activity_splash"-->
-            <!--android:theme="@style/FullscreenTheme"-->
-            <!--android:noHistory="true">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <activity
+            android:name=".activity.SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_splash"
+            android:theme="@style/FullscreenTheme"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
