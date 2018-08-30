@@ -144,7 +144,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="@dimen/margin_8"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/ic_send_black_24dp" />
+            android:background="@drawable/send_btn_selector" />
 
     </RelativeLayout>
 

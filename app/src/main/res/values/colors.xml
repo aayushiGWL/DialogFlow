@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#ee6b48</color>
+    <color name="colorPrimaryDark">#d25a3a</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="view_alpha_background">#4Db4b4b4</color>
@@ -9,7 +9,7 @@
     <color name="purple">#8542E0</color>
     <color name="purpleDark">#6a35b3</color>
 
-    <color name="white">#FFFFFF</color>
+    <color name="white">#f5f5f5</color>
     <color name="black">#000000</color>
 
     <color name="transparent_black">#B3000000</color>
@@ -122,7 +122,7 @@
     <color name="calculator_error_color">#F40056</color>
 
     <!-- Background color of the calculator display. -->
-    <color name="display_background_color">#FFF</color>
+    <color name="display_background_color">#f5f5f5</color>
 
     <!-- Text color for the formula in the calculator display. -->
     <color name="display_formula_text_color">#8A000000</color>
@@ -140,7 +140,7 @@
     <color name="pad_advanced_background_color">#1DE9B6</color>
 
     <!-- Text color for a button in a pad. -->
-    <color name="pad_button_text_color">#FFF</color>
+    <color name="pad_button_text_color">#f5f5f5</color>
 
     <!-- Text color for a button in the advanced pad. -->
     <color name="pad_button_advanced_text_color">#91000000</color>
