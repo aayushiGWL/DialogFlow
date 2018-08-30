@@ -45,7 +45,7 @@
     <string name="speech"><![CDATA[Speech: &#160;]]></string>
     <string name="success_response">Received success response</string>
 
-    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_splash"> GoodWork Solar</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
