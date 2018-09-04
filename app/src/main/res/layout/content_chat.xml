@@ -9,7 +9,6 @@
     tools:context=".activity.ChatActivity"
     tools:showIn="@layout/activity_chat">
 
-
     <FrameLayout
         android:id="@+id/container_body"
         android:layout_width="0dp"
@@ -26,10 +25,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/rl_enter_message"
         android:layout_alignParentTop="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/rl_enter_message">
 
         <Spinner
             android:id="@+id/selectLanguageSpinner"
@@ -37,38 +36,38 @@
             android:layout_height="wrap_content"></Spinner>
 
         <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
 
-            <!--<Button-->
-                <!--android:id="@+id/buttonListen"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:onClick="startRecognition"-->
-                <!--android:text="Listen" />-->
+        <!--<Button-->
+        <!--android:id="@+id/buttonListen"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="startRecognition"-->
+        <!--android:text="Listen" />-->
 
-            <!--<Button-->
-                <!--android:id="@+id/buttonStopListen"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:onClick="stopRecognition"-->
-                <!--android:text="StopListen" />-->
+        <!--<Button-->
+        <!--android:id="@+id/buttonStopListen"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="stopRecognition"-->
+        <!--android:text="StopListen" />-->
 
-            <!--<Button-->
-                <!--android:id="@+id/buttonCancel"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:onClick="cancelRecognition"-->
-                <!--android:text="Cancel" />-->
+        <!--<Button-->
+        <!--android:id="@+id/buttonCancel"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="cancelRecognition"-->
+        <!--android:text="Cancel" />-->
 
-            <!--<ImageView-->
-                <!--android:id="@+id/recIndicator"-->
-                <!--android:layout_width="40dp"-->
-                <!--android:layout_height="40dp"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:src="@drawable/recording_shape"-->
-                <!--android:visibility="invisible" />-->
+        <!--<ImageView-->
+        <!--android:id="@+id/recIndicator"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:src="@drawable/recording_shape"-->
+        <!--android:visibility="invisible" />-->
 
         <!--</LinearLayout>-->
 
@@ -100,13 +99,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="add Context here"
-                    android:singleLine="true"
                     android:imeOptions="actionDone"
+                    android:singleLine="true"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </LinearLayout>
         </ScrollView>
-
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/rl_enter_message"
         android:layout_width="0dp"
@@ -117,36 +116,32 @@
 
         <ai.api.ui.AIButton
             android:id="@+id/btn_ai_micButton"
+            style="@style/ApiAi.Microphone"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            style="@style/ApiAi.Microphone"
-            />
+            android:layout_alignParentStart="true" />
 
         <EditText
             android:id="@+id/et_query"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/btn_ai_micButton"
-            android:layout_toLeftOf="@id/ib_send"
-            android:ems="10"
-            android:layout_marginBottom="@dimen/margin_8"
             android:layout_alignParentBottom="true"
-            android:inputType="textPersonName"
-            android:hint="@string/enter_here" />
+            android:layout_marginBottom="@dimen/margin_8"
+            android:layout_toLeftOf="@id/ib_send"
+            android:layout_toRightOf="@+id/btn_ai_micButton"
+            android:ems="10"
+            android:hint="@string/enter_here"
+            android:inputType="textPersonName" />
 
         <ImageButton
             android:id="@+id/ib_send"
             android:layout_width="@dimen/height_48"
             android:layout_height="@dimen/height_48"
-            android:contentDescription="@string/content_description"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="@dimen/margin_8"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/send_btn_selector" />
-
+            android:background="@drawable/send_btn_selector"
+            android:contentDescription="@string/content_description" />
     </RelativeLayout>
-
-
 </android.support.constraint.ConstraintLayout>

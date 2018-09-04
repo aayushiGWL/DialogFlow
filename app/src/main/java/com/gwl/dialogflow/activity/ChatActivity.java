@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.google.gson.JsonElement;
 import com.gwl.dialogflow.R;
@@ -25,7 +24,6 @@ import com.gwl.dialogflow.model.ChatModel;
 import com.gwl.dialogflow.utils.ApplicationConstant;
 import com.gwl.dialogflow.utils.TTS;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,9 +33,7 @@ import ai.api.PartialResultsListener;
 import ai.api.RequestExtras;
 import ai.api.android.AIConfiguration;
 import ai.api.android.AIDataService;
-import ai.api.model.AIContext;
 import ai.api.model.AIError;
-import ai.api.model.AIEvent;
 import ai.api.model.AIRequest;
 import ai.api.model.AIResponse;
 import ai.api.model.Metadata;
@@ -53,7 +49,7 @@ public class ChatActivity extends AppCompatActivity implements
 
     private ImageButton ibSend;
     private EditText etUserQuery;
-    private AIButton btnAiMicButton;
+    private AIButton btn_ai_micButton;
 
     private AIDataService aiDataService;
     private SolarChatFragment chatFragment;
@@ -81,13 +77,13 @@ public class ChatActivity extends AppCompatActivity implements
         config.setRecognizerCancelSound(getResources().openRawResourceFd(R.raw.test_cancel));
 
 
-        btnAiMicButton.initialize(config);
-        btnAiMicButton.setResultsListener(this);
+        btn_ai_micButton.initialize(config);
+        btn_ai_micButton.setResultsListener(this);
         aiDataService = new AIDataService(this, config);
 
 //        aiDialog = new AIDialog(this, config);
 //        aiDialog.setResultsListener(this);
-        btnAiMicButton.setPartialResultsListener(new PartialResultsListener() {
+        btn_ai_micButton.setPartialResultsListener(new PartialResultsListener() {
             @Override
             public void onPartialResults(List<String> partialResults) {
                 final String result = partialResults.get(0);
@@ -188,7 +184,7 @@ public class ChatActivity extends AppCompatActivity implements
 
         ibSend = findViewById(R.id.ib_send);
         etUserQuery = findViewById(R.id.et_query);
-        btnAiMicButton = findViewById(R.id.btn_ai_micButton);
+        btn_ai_micButton = findViewById(R.id.btn_ai_micButton);
         FloatingActionButton fab = findViewById(R.id.fab);
 
 
@@ -207,7 +203,7 @@ public class ChatActivity extends AppCompatActivity implements
 
         loadFragment();
 
-//        btnAiMicButton.setOnClickListener(new View.OnClickListener() {
+//        btn_ai_micButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
 ////                aiDialog.showAndListen();
@@ -281,7 +277,7 @@ public class ChatActivity extends AppCompatActivity implements
                         Log.i(TAG, String.format("%s: %s", entry.getKey(), entry.getValue().toString()));
                     }
                 }
-                btnAiMicButton.startListening();
+                btn_ai_micButton.startListening();
             }
 
         });
@@ -314,7 +310,7 @@ public class ChatActivity extends AppCompatActivity implements
 //        if (aiDialog != null) {
 //            aiDialog.pause();
 //        }
-        btnAiMicButton.pause();
+        btn_ai_micButton.pause();
         super.onPause();
     }
 
@@ -323,7 +319,7 @@ public class ChatActivity extends AppCompatActivity implements
 //        if (aiDialog != null) {
 //            aiDialog.resume();
 //        }
-        btnAiMicButton.resume();
+        btn_ai_micButton.resume();
         super.onResume();
     }
 
@@ -332,10 +328,10 @@ public class ChatActivity extends AppCompatActivity implements
         runOnUiThread(new Runnable() {
             public void run() {
 //                Toast.makeText(getApplicationContext(), "Completed", Toast.LENGTH_SHORT).show();
-                btnAiMicButton.getAIService().startListening();
+                btn_ai_micButton.getAIService().startListening();
             }
         });
-//        btnAiMicButton.startListening();
+//        btn_ai_micButton.startListening();
     }
 }
 ///*
@@ -417,7 +413,7 @@ public class ChatActivity extends AppCompatActivity implements
 //
 //    private ImageButton ibSend;
 //    private EditText etUserQuery;
-//    private AIButton btnAiMicButton;
+//    private AIButton btn_ai_micButton;
 //
 //    private AIDataService aiDataService;
 //    private SolarChatFragment chatFragment;
@@ -447,7 +443,7 @@ public class ChatActivity extends AppCompatActivity implements
 //
 ////        aiDialog = new AIDialog(this, config);
 ////        aiDialog.setResultsListener(this);
-//        btnAiMicButton.setPartialResultsListener(new PartialResultsListener() {
+//        btn_ai_micButton.setPartialResultsListener(new PartialResultsListener() {
 //            @Override
 //            public void onPartialResults(List<String> partialResults) {
 //                final String result = partialResults.get(0);
@@ -492,8 +488,8 @@ public class ChatActivity extends AppCompatActivity implements
 //        aiService.setListener(this);
 //
 //
-//        btnAiMicButton.initialize(config);
-//        btnAiMicButton.setResultsListener(this);
+//        btn_ai_micButton.initialize(config);
+//        btn_ai_micButton.setResultsListener(this);
 //        aiDataService = new AIDataService(this, config);
 //
 //    }
@@ -589,7 +585,7 @@ public class ChatActivity extends AppCompatActivity implements
 //
 //        ibSend = findViewById(R.id.ib_send);
 //        etUserQuery = findViewById(R.id.et_query);
-//        btnAiMicButton = findViewById(R.id.btn_ai_micButton);
+//        btn_ai_micButton = findViewById(R.id.btn_ai_micButton);
 //        FloatingActionButton fab = findViewById(R.id.fab);
 //
 //        progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -613,7 +609,7 @@ public class ChatActivity extends AppCompatActivity implements
 //
 //        loadFragment();
 //
-////        btnAiMicButton.setOnClickListener(new View.OnClickListener() {
+////        btn_ai_micButton.setOnClickListener(new View.OnClickListener() {
 ////            @Override
 ////            public void onClick(View view) {
 //////                aiDialog.showAndListen();
@@ -770,7 +766,7 @@ public class ChatActivity extends AppCompatActivity implements
 ////        if (aiDialog != null) {
 ////            aiDialog.pause();
 ////        }
-//        btnAiMicButton.pause();
+//        btn_ai_micButton.pause();
 //        // use this method to disconnect from speech recognition service
 //        // Not destroying the SpeechRecognition object in onPause method would block other apps from using SpeechRecognition service
 //        if (aiService != null) {
@@ -785,7 +781,7 @@ public class ChatActivity extends AppCompatActivity implements
 ////        if (aiDialog != null) {
 ////            aiDialog.resume();
 ////        }
-//        btnAiMicButton.resume();
+//        btn_ai_micButton.resume();
 //        // use this method to reinit connection to recognition service
 //        if (aiService != null) {
 //            aiService.resume();
@@ -802,18 +798,18 @@ public class ChatActivity extends AppCompatActivity implements
 //                aiService.startListening();
 //            }
 //        });
-//////        btnAiMicButton.startListening();
-//////        btnAiMicButton.setclick
-//////        btnAiMicButton.onListeningStarted();
-//////        btnAiMicButton.performClick();
-////        btnAiMicButton.resume();
-////        if(btnAiMicButton.getAIService() != null)
-////            btnAiMicButton.getAIService().startListening();
+//////        btn_ai_micButton.startListening();
+//////        btn_ai_micButton.setclick
+//////        btn_ai_micButton.onListeningStarted();
+//////        btn_ai_micButton.performClick();
+////        btn_ai_micButton.resume();
+////        if(btn_ai_micButton.getAIService() != null)
+////            btn_ai_micButton.getAIService().startListening();
 //////
-//////        if (btnAiMicButton != null) {
-//////            btnAiMicButton.startListening();
+//////        if (btn_ai_micButton != null) {
+//////            btn_ai_micButton.startListening();
 //////        }
-////        startRecognition(btnAiMicButton);
+////        startRecognition(btn_ai_micButton);
 //    }
 //    public void startRecognitions(final View view) {
 ////        final String contextString = String.valueOf(contextEditText.getText());
