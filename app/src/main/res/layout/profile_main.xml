@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
     <TextView
@@ -22,15 +23,18 @@
         app:layout_constraintBottom_toTopOf="@+id/iv_mic"
         />
 
-    <ImageView
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/iv_mic"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:contentDescription="@string/tap_to_start"
         app:layout_constraintBottom_toTopOf="@+id/txt_tap_to_start"
         app:layout_constraintEnd_toEndOf="parent"
+        app:borderWidth="0dp"
         android:layout_marginBottom="@dimen/margin_18"
         android:onClick="buttonChatClick"
+        android:backgroundTint="@color/white"
+        android:scaleType="center"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/icn_mic" />
 
