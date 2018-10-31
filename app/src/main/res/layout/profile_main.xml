@@ -30,6 +30,7 @@
         app:layout_constraintBottom_toTopOf="@+id/txt_tap_to_start"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="@dimen/margin_18"
+        android:onClick="buttonChatClick"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/icn_mic" />
 

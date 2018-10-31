@@ -108,11 +108,11 @@ public class MainActivity extends BaseActivity implements IUtterenceCompleted {
         startActivity(intent);
     }
 
-  /*  public void buttonChatClick(View view) {
+    public void buttonChatClick(View view) {
         startActivity(ChatActivity.class);
 
     }
-  */  @Override
+    @Override
     public void TTSInitialized() {
 
     }
