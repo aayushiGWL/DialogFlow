@@ -90,6 +90,11 @@ public class AIDialogSampleActivity extends BaseActivity implements AIDialog.AID
                 Log.i(TAG, "Speech: " + speech);
                 TTS.speak(speech, AIDialogSampleActivity.this, new IUtterenceCompleted() {
                     @Override
+                    public void TTSInitialized() {
+
+                    }
+
+                    @Override
                     public void onCompleted() {
 
                     }

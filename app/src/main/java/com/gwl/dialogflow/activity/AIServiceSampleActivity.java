@@ -184,6 +184,11 @@ public class AIServiceSampleActivity extends BaseActivity
                 Log.i(TAG, "Speech: " + speech);
                 TTS.speak(speech, AIServiceSampleActivity.this, new IUtterenceCompleted() {
                     @Override
+                    public void TTSInitialized() {
+
+                    }
+
+                    @Override
                     public void onCompleted() {
 
                     }

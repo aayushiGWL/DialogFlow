@@ -129,6 +129,11 @@ public class AIButtonSampleActivity extends BaseActivity implements AIButton.AIB
                 Log.i(TAG, "Speech: " + speech);
                 TTS.speak(speech, AIButtonSampleActivity.this, new IUtterenceCompleted() {
                     @Override
+                    public void TTSInitialized() {
+
+                    }
+
+                    @Override
                     public void onCompleted() {
 
                     }

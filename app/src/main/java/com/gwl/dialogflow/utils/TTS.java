@@ -34,17 +34,30 @@ public class TTS {
     private static TextToSpeech textToSpeech;
     private static String TAG= "TTS - ";
 
-    public static void init(final Context context) {
+    public static void init(final Context context, final IUtterenceCompleted iUtterenceCompleted) {
 //        if (textToSpeech == null) {
             textToSpeech = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
                 @Override
                 public void onInit(int i) {
 //                    Toast.makeText(context, "initiated", Toast.LENGTH_SHORT).show();
+                    iUtterenceCompleted.TTSInitialized();
 
                 }
             });
 
     }
+    public static void init(Context context) {
+
+        textToSpeech = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+//                    Toast.makeText(context, "initiated", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
+
 
     private static   void setTtsListener(final Activity mActivity, final IUtterenceCompleted iUtterenceCompleted) {
         if (Build.VERSION.SDK_INT >= 15)
@@ -99,4 +112,6 @@ public class TTS {
         setTtsListener(mActivity, iUtterenceCompleted);
         textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, ttsParams);
     }
+
+
 }

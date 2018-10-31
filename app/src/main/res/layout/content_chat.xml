@@ -136,10 +136,11 @@
 
         <ImageButton
             android:id="@+id/ib_send"
-            android:layout_width="@dimen/height_48"
-            android:layout_height="@dimen/height_48"
+            android:layout_width="@dimen/height_36"
+            android:layout_height="@dimen/height_40"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
+            android:padding="@dimen/margin_8"
             android:layout_marginBottom="@dimen/margin_8"
             android:background="@drawable/send_btn_selector"
             android:contentDescription="@string/content_description" />

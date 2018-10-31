@@ -4,20 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_bg">
+    android:background="@color/colorPrimary">
 
     <TextView
         android:id="@+id/tv_splash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/helvetica"
         android:gravity="center"
-        android:textColor="#f5f5f5"
-        android:textSize="15pt"
         android:shadowColor="#dd000000"
         android:shadowDx="-1"
         android:shadowDy="-1"
         android:shadowRadius="2"
-        android:text="@string/splash_name"/>
+        android:layout_margin="@dimen/margin_16"
+        android:textAllCaps="true"
+        android:text="@string/splash_name"
+        android:textColor="#f5f5f5"
+        android:textSize="@dimen/text_26" />
+
+    <TextView
+        android:id="@+id/txt_powered_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/txt_gwl"
+        android:text="@string/powered_by"
+        android:fontFamily="@font/helvetica"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_12" />
+
+    <TextView
+        android:id="@+id/txt_gwl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/helvetica"
+        android:layout_marginBottom="32dp"
+        android:text="@string/goodworklabs"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16" />
 
 </RelativeLayout>

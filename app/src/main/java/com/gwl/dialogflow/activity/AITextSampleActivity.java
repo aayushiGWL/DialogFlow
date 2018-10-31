@@ -204,6 +204,11 @@ public class AITextSampleActivity extends BaseActivity implements AdapterView.On
                 Log.i(TAG, "Speech: " + speech);
                 TTS.speak(speech, AITextSampleActivity.this, new IUtterenceCompleted() {
                     @Override
+                    public void TTSInitialized() {
+
+                    }
+
+                    @Override
                     public void onCompleted() {
 
                     }

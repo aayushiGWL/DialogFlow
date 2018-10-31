@@ -19,10 +19,12 @@ package com.gwl.dialogflow.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.gwl.dialogflow.R;
 import com.gwl.dialogflow.application.MyAppGlideModule;
@@ -32,6 +34,7 @@ public class MainActivity extends BaseActivity implements IUtterenceCompleted {
 
     Context mContext;
 
+    private TextView txtMainContent ;
     ImageView ivProfilePic;
 
     public static final String TAG = MainActivity.class.getName();
@@ -40,7 +43,7 @@ public class MainActivity extends BaseActivity implements IUtterenceCompleted {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.profile_main);
 
         initialize();
         TTS.init(getApplicationContext() );
@@ -49,9 +52,11 @@ public class MainActivity extends BaseActivity implements IUtterenceCompleted {
     private void initialize() {
         mContext = MainActivity.this;
         iUtterenceCompleted = this;
-        ivProfilePic = findViewById(R.id.iv_profile_pic);
+        txtMainContent = findViewById(R.id.txt_main_content);
+        txtMainContent.setMovementMethod(new ScrollingMovementMethod());
+//        ivProfilePic = findViewById(R.id.iv_profile_pic);
 
-        MyAppGlideModule.GlideMultipleEffect(mContext, R.drawable.aayushi_image, ivProfilePic);
+//        MyAppGlideModule.GlideMultipleEffect(mContext, R.drawable.aayushi_image, ivProfilePic);
 
     }
 
@@ -62,7 +67,7 @@ public class MainActivity extends BaseActivity implements IUtterenceCompleted {
         checkAudioRecordPermission();
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
@@ -81,10 +86,10 @@ public class MainActivity extends BaseActivity implements IUtterenceCompleted {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    public void serviceSampleClick(final View view) {
-        startActivity(AIServiceSampleActivity.class);
-    }
+*/
+//    public void serviceSampleClick(final View view) {
+//        startActivity(AIServiceSampleActivity.class);
+//    }
 
     public void buttonSampleClick(final View view) {
         startActivity(AIButtonSampleActivity.class);
@@ -103,8 +108,12 @@ public class MainActivity extends BaseActivity implements IUtterenceCompleted {
         startActivity(intent);
     }
 
-    public void buttonChatClick(View view) {
+  /*  public void buttonChatClick(View view) {
         startActivity(ChatActivity.class);
+
+    }
+  */  @Override
+    public void TTSInitialized() {
 
     }
 

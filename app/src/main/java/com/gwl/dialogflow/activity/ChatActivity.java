@@ -58,6 +58,7 @@ public class ChatActivity extends AppCompatActivity implements
 
     private static final String TAG = ChatActivity.class.getName();
     private Activity mActivity;
+    private String intentName = "HY";
 
 //    private AIDialog aiDialog;
 
@@ -66,8 +67,13 @@ public class ChatActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+
+        mContext = ChatActivity.this;
+        mActivity = ChatActivity.this;
+        iUtterenceCompleted = this;
+        TTS.init(mContext, iUtterenceCompleted);
         initialize();
-        TTS.init(mContext);
+
         final AIConfiguration config = new AIConfiguration(Config.ACCESS_TOKEN,
                 AIConfiguration.SupportedLanguages.English,
                 AIConfiguration.RecognitionEngine.System);
@@ -103,6 +109,13 @@ public class ChatActivity extends AppCompatActivity implements
         });
 
 
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+//        btn_ai_micButton.getAIService().startListening();
     }
 
     private void sendRequest() {
@@ -178,9 +191,7 @@ public class ChatActivity extends AppCompatActivity implements
 
     private void initialize() {
 
-        mContext = ChatActivity.this;
-        mActivity = ChatActivity.this;
-        iUtterenceCompleted = this;
+
 
         ibSend = findViewById(R.id.ib_send);
         etUserQuery = findViewById(R.id.et_query);
@@ -221,7 +232,8 @@ public class ChatActivity extends AppCompatActivity implements
     }
 
     private void loadFragment() {
-        chatFragment = new SolarChatFragment();
+//        chatFragment = new SolarChatFragment();
+        chatFragment = SolarChatFragment.newInstance(1, iUtterenceCompleted);
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container_body, chatFragment);
         fragmentTransaction.addToBackStack(null);
@@ -239,6 +251,7 @@ public class ChatActivity extends AppCompatActivity implements
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                intentName = null;
                 Log.d(TAG, "onResult");
 
 //                resultTextView.setText(gson.toJson(response));
@@ -266,6 +279,7 @@ public class ChatActivity extends AppCompatActivity implements
 
                     final Metadata metadata = result.getMetadata();
                 if (metadata != null) {
+                    intentName = metadata.getIntentName();
                     Log.i(TAG, getString(R.string.intent_id) + metadata.getIntentId());
                     Log.i(TAG, getString(R.string.intent_name) + metadata.getIntentName());
                 }
@@ -324,14 +338,38 @@ public class ChatActivity extends AppCompatActivity implements
     }
 
     @Override
+    public void TTSInitialized() {
+        adapterAdded();
+    }
+
+    @Override
     public void onCompleted() {
         runOnUiThread(new Runnable() {
             public void run() {
 //                Toast.makeText(getApplicationContext(), "Completed", Toast.LENGTH_SHORT).show();
-                btn_ai_micButton.getAIService().startListening();
+                if(intentName != null && !intentName.equals("quit intent")) {
+                    btn_ai_micButton.getAIService().startListening();
+                }
             }
         });
 //        btn_ai_micButton.startListening();
+    }
+
+    public void adapterAdded() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                TTS.speak(getString(R.string.welcome_note), mActivity, iUtterenceCompleted);
+                addNewAppChat(getString(R.string.welcome_note));
+
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
 ///*

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ee6b48</color>
-    <color name="colorPrimaryDark">#E6d25a3a</color>
+    <color name="colorPrimary">#4A90E2</color><!--#ee6b48</color>-->
+    <color name="colorPrimaryDark">#BF4A90E2</color><!--E6d25a3a-->
     <color name="colorAccent">#FF4081</color>
 
     <color name="view_alpha_background">#4Db4b4b4</color>
@@ -159,4 +159,6 @@
     <color name="chat_user_bg">#E8EAED</color>
 
     <color name="black_overlay">#66000000</color>
+    <color name="fade_black">#484848</color>
+    <color name="content_grey">#B3B3B3</color>
 </resources>

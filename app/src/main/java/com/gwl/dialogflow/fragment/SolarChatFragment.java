@@ -10,8 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.gwl.dialogflow.R;
+import com.gwl.dialogflow.activity.ChatActivity;
+import com.gwl.dialogflow.activity.IUtterenceCompleted;
 import com.gwl.dialogflow.adapter.SolarChatRecyclerViewAdapter;
 import com.gwl.dialogflow.custom_class.CustomDividerItemDecoration;
 import com.gwl.dialogflow.custom_class.VerticalSpaceItemDecoration;
@@ -19,6 +22,7 @@ import com.gwl.dialogflow.dummy.DummyContent;
 import com.gwl.dialogflow.model.ChatModel;
 import com.gwl.dialogflow.model.DummyItem;
 import com.gwl.dialogflow.utils.ApplicationConstant;
+import com.gwl.dialogflow.utils.TTS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +32,7 @@ import static android.widget.LinearLayout.VERTICAL;
 
 public class SolarChatFragment extends Fragment implements IChatRequestMessage {
 
+    private static IUtterenceCompleted iUtterenceComplete;
     private Context mContext;
 
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -47,7 +52,8 @@ public class SolarChatFragment extends Fragment implements IChatRequestMessage {
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static SolarChatFragment newInstance(int columnCount) {
+    public static SolarChatFragment newInstance(int columnCount, IUtterenceCompleted iUtterenceCompleted) {
+        iUtterenceComplete = iUtterenceCompleted;
         SolarChatFragment fragment = new SolarChatFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
@@ -95,6 +101,10 @@ public class SolarChatFragment extends Fragment implements IChatRequestMessage {
 //            removeData(myList, myList.size()-1);
             mAdapter = new SolarChatRecyclerViewAdapter(mChatModels, mListener);
             recyclerView.setAdapter(mAdapter);
+//            ((ChatActivity) mContext).adapterAdded();
+//            Toast.makeText(mContext, "Created", Toast.LENGTH_LONG).show();
+//            addNewAppChat(getString(R.string.welcome_chat_message));
+//            TTS.speak(getString(R.string.welcome_chat_message), getActivity(), iUtterenceComplete);
         }
         return view;
     }
@@ -125,7 +135,12 @@ public class SolarChatFragment extends Fragment implements IChatRequestMessage {
         super.onDetach();
         mListener = null;
     }
-
+    private void addNewAppChat(String result) {
+        Bundle bundle = new Bundle();
+        bundle.putString(ApplicationConstant.REQUEST_MESSAGE, result);
+        bundle.putString(ApplicationConstant.MESSAGE_TYPE, ApplicationConstant.MESSAGE_TYPE_APP);
+        addNewChatMessage(bundle);
+    }
     public void addNewChatMessage(Bundle bundle) {
         String msg = bundle.getString(ApplicationConstant.REQUEST_MESSAGE);
         String msgType = bundle.getString(ApplicationConstant.MESSAGE_TYPE,"");
