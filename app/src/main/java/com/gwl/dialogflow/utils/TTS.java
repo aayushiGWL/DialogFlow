@@ -1,12 +1,12 @@
 /**
  * Copyright 2017 Google Inc. All Rights Reserved.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -31,21 +31,9 @@ import java.util.Map;
 
 public class TTS {
 
-    private static TextToSpeech textToSpeech;
-    private static String TAG= "TTS - ";
+    private static TextToSpeech textToSpeech = null;
+    private static String TAG = "TTS - ";
 
-    public static void init(final Context context, final IUtterenceCompleted iUtterenceCompleted) {
-//        if (textToSpeech == null) {
-            textToSpeech = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
-                @Override
-                public void onInit(int i) {
-//                    Toast.makeText(context, "initiated", Toast.LENGTH_SHORT).show();
-                    iUtterenceCompleted.TTSInitialized();
-
-                }
-            });
-
-    }
     public static void init(Context context) {
 
         textToSpeech = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
@@ -58,60 +46,67 @@ public class TTS {
 
     }
 
+    public static void init(final Context context, final IUtterenceCompleted iUtterenceCompleted) {
+//        if (textToSpeech == null) {
+        if(textToSpeech == null )
+        textToSpeech = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+//                    Toast.makeText(context, "initiated", Toast.LENGTH_SHORT).show();
+                if (status == TextToSpeech.SUCCESS)
+                    iUtterenceCompleted.TTSInitialized();
 
-    private static   void setTtsListener(final Activity mActivity, final IUtterenceCompleted iUtterenceCompleted) {
-        if (Build.VERSION.SDK_INT >= 15)
-        {
-            int listenerResult = textToSpeech.setOnUtteranceProgressListener(new UtteranceProgressListener()
-            {
+            }
+        });
+
+    }
+
+    private static void setTtsListener(final Activity mActivity, final IUtterenceCompleted iUtterenceCompleted) {
+        if (Build.VERSION.SDK_INT >= 15) {
+            int listenerResult = textToSpeech.setOnUtteranceProgressListener(new UtteranceProgressListener() {
                 @Override
-                public void onDone(String utteranceId)
-                {
-                    Log.d(TAG,"progress on Done " + utteranceId);
+                public void onDone(String utteranceId) {
+                    Log.d(TAG, "progress on Done " + utteranceId);
                     iUtterenceCompleted.onCompleted();
 
                 }
 
                 @Override
-                public void onError(String utteranceId)
-                {
-                    Log.d(TAG,"progress on Error " + utteranceId);
+                public void onError(String utteranceId) {
+                    Log.d(TAG, "progress on Error " + utteranceId);
                 }
 
                 @Override
-                public void onStart(String utteranceId)
-                {
-                    Log.d(TAG,"progress on Start " + utteranceId);
+                public void onStart(String utteranceId) {
+                    Log.d(TAG, "progress on Start " + utteranceId);
                 }
             });
-            if (listenerResult != TextToSpeech.SUCCESS)
-            {
+            if (listenerResult != TextToSpeech.SUCCESS) {
                 Log.e(TAG, "failed to add utterance progress listener");
             }
-        }
-        else
-        {
-            int listenerResult = textToSpeech.setOnUtteranceCompletedListener(new TextToSpeech.OnUtteranceCompletedListener()
-            {
+        } else {
+            int listenerResult = textToSpeech.setOnUtteranceCompletedListener(new TextToSpeech.OnUtteranceCompletedListener() {
                 @Override
-                public void onUtteranceCompleted(String utteranceId)
-                {
-                    Log.d(TAG,"progress on Completed " + utteranceId);
+                public void onUtteranceCompleted(String utteranceId) {
+                    Log.d(TAG, "progress on Completed " + utteranceId);
                 }
             });
-            if (listenerResult != TextToSpeech.SUCCESS)
-            {
+            if (listenerResult != TextToSpeech.SUCCESS) {
                 Log.e(TAG, "failed to add utterance completed listener");
             }
         }
     }
+
     public static void speak(final String text, Activity mActivity, final IUtterenceCompleted iUtterenceCompleted) {
-        HashMap<String,String> ttsParams = new HashMap<String, String>();
-        ttsParams.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,
-                mActivity.getPackageName());
+//        HashMap<String, String> ttsParams = new HashMap<String, String>();
+//        ttsParams.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,
+//                mActivity.getPackageName());
         setTtsListener(mActivity, iUtterenceCompleted);
-        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, ttsParams);
+        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, mActivity.getPackageName());
     }
 
+    public static void shutDow() {
+        textToSpeech.shutdown();
+    }
 
 }

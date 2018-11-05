@@ -26,10 +26,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.gwl.dialogflow.application.AIApplication;
+import com.gwl.dialogflow.utils.TTS;
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity implements IUtterenceCompleted {
 
-    private AIApplication app;
+    AIApplication app;
 
     private static final long PAUSE_CALLBACK_DELAY = 500;
     private static final int REQUEST_AUDIO_PERMISSIONS_ID = 33;
@@ -41,11 +42,17 @@ public class BaseActivity extends AppCompatActivity {
             app.onActivityPaused();
         }
     };
+    private BaseActivity mContext;
+    IUtterenceCompleted iUtterenceCompleted;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = BaseActivity.this;
+        iUtterenceCompleted = this;
         app = (AIApplication) getApplication();
+        TTS.init(mContext, iUtterenceCompleted);
     }
 
     @Override
@@ -104,5 +111,16 @@ public class BaseActivity extends AppCompatActivity {
                 return;
             }
         }
+    }
+
+    @Override
+    public void TTSInitialized() {
+        app.setTTInitialized(true);
+
+    }
+
+    @Override
+    public void onCompleted() {
+
     }
 }

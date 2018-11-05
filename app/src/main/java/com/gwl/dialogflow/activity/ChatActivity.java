@@ -18,6 +18,8 @@ import android.widget.ImageButton;
 
 import com.google.gson.JsonElement;
 import com.gwl.dialogflow.R;
+import com.gwl.dialogflow.async.MyAsyncTask;
+import com.gwl.dialogflow.async.WelcomeAsyncTask;
 import com.gwl.dialogflow.config.Config;
 import com.gwl.dialogflow.fragment.SolarChatFragment;
 import com.gwl.dialogflow.model.ChatModel;
@@ -41,9 +43,9 @@ import ai.api.model.Result;
 import ai.api.model.Status;
 import ai.api.ui.AIButton;
 
-public class ChatActivity extends AppCompatActivity implements
+public class ChatActivity extends BaseActivity implements
 //        AIDialog.AIDialogListener,
-        SolarChatFragment.OnListFragmentInteractionListener, AIButton.AIButtonListener, IUtterenceCompleted {
+        SolarChatFragment.OnListFragmentInteractionListener, AIButton.AIButtonListener/*, IUtterenceCompleted*/ {
 
     private Context mContext;
 
@@ -54,7 +56,7 @@ public class ChatActivity extends AppCompatActivity implements
     private AIDataService aiDataService;
     private SolarChatFragment chatFragment;
     private final Handler handler = new Handler();
-    private IUtterenceCompleted iUtterenceCompleted;
+//    private IUtterenceCompleted iUtterenceCompleted;
 
     private static final String TAG = ChatActivity.class.getName();
     private Activity mActivity;
@@ -71,6 +73,7 @@ public class ChatActivity extends AppCompatActivity implements
         mContext = ChatActivity.this;
         mActivity = ChatActivity.this;
         iUtterenceCompleted = this;
+        if(!app.isTTInitialized())
         TTS.init(mContext, iUtterenceCompleted);
         initialize();
 
@@ -182,7 +185,7 @@ public class ChatActivity extends AppCompatActivity implements
         chatFragment.addNewChatMessage(bundle);
     }
 
-    private void addNewAppChat(String result) {
+    public void addNewAppChat(String result) {
         Bundle bundle = new Bundle();
         bundle.putString(ApplicationConstant.REQUEST_MESSAGE, result);
         bundle.putString(ApplicationConstant.MESSAGE_TYPE, ApplicationConstant.MESSAGE_TYPE_APP);
@@ -190,7 +193,6 @@ public class ChatActivity extends AppCompatActivity implements
     }
 
     private void initialize() {
-
 
 
         ibSend = findViewById(R.id.ib_send);
@@ -229,6 +231,9 @@ public class ChatActivity extends AppCompatActivity implements
                 sendRequest();
             }
         });
+
+        if(app.isTTInitialized())
+            adapterAdded();
     }
 
     private void loadFragment() {
@@ -245,6 +250,14 @@ public class ChatActivity extends AppCompatActivity implements
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+//        TTS.shutDow();
+//        if(btn_ai_micButton != null){
+//            btn_ai_micButton.onCancelPendingInputEvents();
+//        }
+    }
 
     @Override
     public void onResult(final AIResponse response) {
@@ -277,7 +290,7 @@ public class ChatActivity extends AppCompatActivity implements
                 else
                     addNewAppChat(getString(R.string.error_message));
 
-                    final Metadata metadata = result.getMetadata();
+                final Metadata metadata = result.getMetadata();
                 if (metadata != null) {
                     intentName = metadata.getIntentName();
                     Log.i(TAG, getString(R.string.intent_id) + metadata.getIntentId());
@@ -299,24 +312,12 @@ public class ChatActivity extends AppCompatActivity implements
 
     @Override
     public void onError(final AIError error) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Log.d(TAG, "onError");
-//                resultTextView.setText(error.toString());
-            }
-        });
+        new MyAsyncTask().execute(TAG, getString(R.string.on_error));
     }
 
     @Override
     public void onCancelled() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Log.d(TAG, "onCancelled");
-//                resultTextView.setText("");
-            }
-        });
+        new MyAsyncTask().execute(TAG,getString(R.string.on_cancelled));
     }
 
     @Override
@@ -347,7 +348,7 @@ public class ChatActivity extends AppCompatActivity implements
         runOnUiThread(new Runnable() {
             public void run() {
 //                Toast.makeText(getApplicationContext(), "Completed", Toast.LENGTH_SHORT).show();
-                if(intentName != null && !intentName.equals("quit intent")) {
+                if (intentName != null && !intentName.equals("quit intent")) {
                     btn_ai_micButton.getAIService().startListening();
                 }
             }
@@ -356,7 +357,8 @@ public class ChatActivity extends AppCompatActivity implements
     }
 
     public void adapterAdded() {
-        runOnUiThread(new Runnable() {
+//        new WelcomeAsyncTask(mActivity, iUtterenceCompleted).execute();
+        new Handler().post(new Runnable() {
             @Override
             public void run() {
                 TTS.speak(getString(R.string.welcome_note), mActivity, iUtterenceCompleted);

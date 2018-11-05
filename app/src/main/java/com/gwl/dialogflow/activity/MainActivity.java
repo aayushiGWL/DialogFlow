@@ -30,7 +30,7 @@ import com.gwl.dialogflow.R;
 import com.gwl.dialogflow.application.MyAppGlideModule;
 import com.gwl.dialogflow.utils.TTS;
 
-public class MainActivity extends BaseActivity implements IUtterenceCompleted {
+public class MainActivity extends BaseActivity /*implements IUtterenceCompleted*/ {
 
     Context mContext;
 
@@ -46,12 +46,12 @@ public class MainActivity extends BaseActivity implements IUtterenceCompleted {
         setContentView(R.layout.profile_main);
 
         initialize();
-        TTS.init(getApplicationContext() );
+//        TTS.init(getApplicationContext() );
     }
 
     private void initialize() {
         mContext = MainActivity.this;
-        iUtterenceCompleted = this;
+//        iUtterenceCompleted = this;
         txtMainContent = findViewById(R.id.txt_main_content);
         txtMainContent.setMovementMethod(new ScrollingMovementMethod());
 //        ivProfilePic = findViewById(R.id.iv_profile_pic);
@@ -112,7 +112,7 @@ public class MainActivity extends BaseActivity implements IUtterenceCompleted {
         startActivity(ChatActivity.class);
 
     }
-    @Override
+    /*@Override
     public void TTSInitialized() {
 
     }
@@ -120,5 +120,14 @@ public class MainActivity extends BaseActivity implements IUtterenceCompleted {
     @Override
     public void onCompleted() {
 
+    }*/
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        TTS.shutDow();
+//        if(btn_ai_micButton != null){
+//            btn_ai_micButton.onCancelPendingInputEvents();
+//        }
     }
 }

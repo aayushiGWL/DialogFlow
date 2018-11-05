@@ -32,6 +32,8 @@ public class AIApplication extends Application {
     private BluetoothControllerImpl bluetoothController;
     private SettingsManager settingsManager;
 
+    private boolean TTInitialized;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -103,4 +105,11 @@ public class AIApplication extends Application {
 
     }
 
+    public boolean isTTInitialized() {
+        return TTInitialized;
+    }
+
+    public void setTTInitialized(boolean TTInitialized) {
+        this.TTInitialized = TTInitialized;
+    }
 }
