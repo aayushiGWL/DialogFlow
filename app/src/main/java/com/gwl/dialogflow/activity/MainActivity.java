@@ -47,6 +47,8 @@ public class MainActivity extends BaseActivity /*implements IUtterenceCompleted*
 
         initialize();
 //        TTS.init(getApplicationContext() );
+//        if(app.isTTInitialized())
+//            TTS.speak("a", MainActivity.this, iUtterenceCompleted);
     }
 
     private void initialize() {
@@ -125,7 +127,6 @@ public class MainActivity extends BaseActivity /*implements IUtterenceCompleted*
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        TTS.shutDow();
 //        if(btn_ai_micButton != null){
 //            btn_ai_micButton.onCancelPendingInputEvents();
 //        }

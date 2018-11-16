@@ -163,4 +163,5 @@
     <color name="black_overlay">#66000000</color>
     <color name="fade_black">#484848</color>
     <color name="content_grey">#B3B3B3</color>
+    <color name="icon_blue_color">#BF4A90E2</color>
 </resources>

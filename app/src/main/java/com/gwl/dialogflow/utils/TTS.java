@@ -106,7 +106,9 @@ public class TTS {
     }
 
     public static void shutDow() {
-        textToSpeech.shutdown();
+        if(textToSpeech != null) {
+            textToSpeech.shutdown();
+        }
     }
 
 }

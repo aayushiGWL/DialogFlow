@@ -73,8 +73,8 @@ public class ChatActivity extends BaseActivity implements
         mContext = ChatActivity.this;
         mActivity = ChatActivity.this;
         iUtterenceCompleted = this;
-        if(!app.isTTInitialized())
-        TTS.init(mContext, iUtterenceCompleted);
+//        if (!app.isTTInitialized())
+//            TTS.init(mContext, iUtterenceCompleted);
         initialize();
 
         final AIConfiguration config = new AIConfiguration(Config.ACCESS_TOKEN,
@@ -232,7 +232,7 @@ public class ChatActivity extends BaseActivity implements
             }
         });
 
-        if(app.isTTInitialized())
+        if (app.isTTInitialized())
             adapterAdded();
     }
 
@@ -317,7 +317,7 @@ public class ChatActivity extends BaseActivity implements
 
     @Override
     public void onCancelled() {
-        new MyAsyncTask().execute(TAG,getString(R.string.on_cancelled));
+        new MyAsyncTask().execute(TAG, getString(R.string.on_cancelled));
     }
 
     @Override
@@ -358,14 +358,14 @@ public class ChatActivity extends BaseActivity implements
 
     public void adapterAdded() {
 //        new WelcomeAsyncTask(mActivity, iUtterenceCompleted).execute();
-        new Handler().post(new Runnable() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 TTS.speak(getString(R.string.welcome_note), mActivity, iUtterenceCompleted);
                 addNewAppChat(getString(R.string.welcome_note));
 
             }
-        });
+        },200);
     }
 
     @Override
